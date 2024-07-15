@@ -21,10 +21,25 @@
 }
 
 .modal-main button.close {
-  font-size: 2em;
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
   background: none;
   border: none;
   position: absolute;
   top: 0em;
   right: 0.2em;
+}
+
+.modal-main button.close:hover,
+.modal-main button.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.responsive-img {
+  width: 200px;
+  height: auto;
 }

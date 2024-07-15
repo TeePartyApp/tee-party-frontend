@@ -3,12 +3,32 @@ import { UsersIndex } from "./Users/UsersIndex"
 import { UsersNew } from "./Users/UsersNew";
 import { Modal } from "./Modal/Modal";
 import { UsersShow } from "./Users/UsersShow";
-import axios from "axios"
+import axios from "axios";
+import { Routes, Route } from "react-router-dom";
+import { Signup } from "./Authentication/Signup";
+import { Login } from "./Authentication/Login";
+import { LogoutLink } from "./Authentication/LogoutLink";
+import { MatchesIndex } from "./Matches/MatchesIndex";
 
 export function Content() {
   const [users, setUsers] = useState([]);
   const [isUsersShowVisible, setIsUsersShowVisible] = useState(false);
   const [currentUser, setCurrentUser] = useState({});
+  const [matches, setMatches] = useState([]);
+  const [currentMatch, setCurrentMatch] = useState({});
+
+  const handleIndexMatches = () => {
+    console.log("handleIndexMatches");
+    axios.get("http://localhost:3000/matches.json").then((response) => {
+      console.log(response.data);
+      setMatches(response.data);
+    });
+  };
+
+  const handleShowMatch = (match) => {
+    console.log("handleShowMatch", match);
+    setCurrentMatch(match);
+  };
 
   const handleIndexUsers = () => {
     console.log("handleIndexUsers");
@@ -60,18 +80,28 @@ export function Content() {
   const handleClose = () => {
     console.log("handleClose");
     setIsUsersShowVisible(false);
-  }
+  };
 
   useEffect(handleIndexUsers, []);
+  useEffect(handleIndexMatches, []);
   
   return (
     <main>
-      <UsersNew onCreateUser={handleCreateUser}/>
-      <h1>Welcome to the Tee Party</h1>
-      <UsersIndex users={users} onShowUser={handleShowUser} />
+      <Routes>
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/logout" element={<LogoutLink />} />
+        <Route path="/matches" element={
+          <MatchesIndex matches={matches} 
+          onShowMatch={handleShowMatch}/>} />
+      </Routes>
+      
+      {/* <UsersNew onCreateUser={handleCreateUser}/> */}
+      {/* <UsersIndex users={users} onShowUser={handleShowUser} /> */}
       <Modal show={isUsersShowVisible} onClose={handleClose}>
         <UsersShow user={currentUser} onUpdateUser={handleUpdateUser} onDestroyUser={handleDestroyUser} />
       </Modal>
     </main>
   );
 }
+
