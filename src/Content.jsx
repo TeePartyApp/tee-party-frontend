@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { UsersIndex } from "./Users/UsersIndex"
+import { UsersIndex } from "./Users/UsersIndex";
 import { UsersNew } from "./Users/UsersNew";
 import { Modal } from "./Modal/Modal";
 import { UsersShow } from "./Users/UsersShow";
@@ -27,7 +27,7 @@ export function Content() {
 
   const handleShowMatch = (match) => {
     console.log("handleShowMatch", match);
-    setCurrentMatch(match);
+    setCurrentMatch(...matches, response.data);
   };
 
   const handleIndexUsers = () => {
@@ -54,7 +54,7 @@ export function Content() {
 
   const handleUpdateUser = (id, params, successCallBack) => {
     console.log("handleUpdateUser", params);
-    axios.patch(`http://localhost:3000/users/${id}.json`, params).then((response) => {
+    axios.patch(`http://localhost:3000/users/current_user.json`, params).then((response) => {
       setUsers(
         users.map((user) => {
           if (user.id ===response.data.id) {
@@ -71,7 +71,7 @@ export function Content() {
 
   const handleDestroyUser = (id) => {
     console.log("handleDestroyUser", id);
-    axios.delete(`http://localhost:3000/users/${id}.json`).then((response) => {
+    axios.delete(`http://localhost:3000/users/current_user.json`).then((response) => {
       setUsers(users.filter((filter) => user.id !== id));
       handleClose();
     });
@@ -94,13 +94,14 @@ export function Content() {
         <Route path="/matches" element={
           <MatchesIndex matches={matches} 
           onShowMatch={handleShowMatch}/>} />
+      <Route path="/edit_profile" element={<UsersShow user={users} show={isUsersShowVisible} onUpdateUser={handleUpdateUser} onDestroyUser={handleDestroyUser} />} />
       </Routes>
       
       {/* <UsersNew onCreateUser={handleCreateUser}/> */}
       {/* <UsersIndex users={users} onShowUser={handleShowUser} /> */}
-      <Modal show={isUsersShowVisible} onClose={handleClose}>
+      {/* <Modal show={isUsersShowVisible} onClose={handleClose}>
         <UsersShow user={currentUser} onUpdateUser={handleUpdateUser} onDestroyUser={handleDestroyUser} />
-      </Modal>
+      </Modal> */}
     </main>
   );
 }

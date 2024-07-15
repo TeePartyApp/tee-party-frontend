@@ -9,7 +9,7 @@ export function Header() {
     console.log("I am logged in")
     loggedInStatus = (
       <>
-        <LogoutLink /> | <a href="/matches">Matches</a>
+        <LogoutLink /> | <a href="/matches">Matches</a> | <a href="/edit_profile">Edit profile</a>
       </>
     )
   } else {
