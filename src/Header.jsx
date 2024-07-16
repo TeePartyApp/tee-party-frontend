@@ -1,4 +1,6 @@
 import { LogoutLink } from "./Authentication/LogoutLink"
+import './Header.css';
+
 
 export function Header() {
   const logo = '/Images/logo.jpeg';
@@ -9,14 +11,14 @@ export function Header() {
     console.log("I am logged in")
     loggedInStatus = (
       <>
-        <LogoutLink /> | <a href="/matches">Matches</a> | <a href="/edit_profile">Edit profile</a>
+        <a href="/">Home</a> | <LogoutLink /> | <a href="/matches">Matches</a> | <a href="/edit_profile">Edit profile</a>
       </>
     )
   } else {
     console.log("I am logged out")
     loggedInStatus = (
       <>
-        <a href="/signup">Signup</a> | <a href="/login">Login</a> 
+        <a href="/">Home</a> | <a href="/signup">Signup</a> | <a href="/login">Login</a> 
       </>
     )
   }
@@ -24,8 +26,10 @@ export function Header() {
   return (
     <header>
       <nav>
-        <img src={logo} alt="My Image" style={{ width: '50px', height: 'auto' }} /> 
-        <a href="/">Home</a> | {loggedInStatus}
+        <div className="header-container">
+          <img src={logo} alt="My Image" className="logo" />  
+          <span className="nav-links">{loggedInStatus}</span>
+        </div>
       </nav>
     </header>
   )

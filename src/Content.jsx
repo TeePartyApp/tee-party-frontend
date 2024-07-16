@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react"
-import { UsersIndex } from "./Users/UsersIndex";
 import { UsersNew } from "./Users/UsersNew";
 import { Modal } from "./Modal/Modal";
 import { UsersShow } from "./Users/UsersShow";
@@ -9,6 +8,8 @@ import { Signup } from "./Authentication/Signup";
 import { Login } from "./Authentication/Login";
 import { LogoutLink } from "./Authentication/LogoutLink";
 import { MatchesIndex } from "./Matches/MatchesIndex";
+import { RandomUser } from "./UserSwipe";
+
 
 export function Content() {
   const [users, setUsers] = useState([]);
@@ -95,13 +96,8 @@ export function Content() {
           <MatchesIndex matches={matches} 
           onShowMatch={handleShowMatch}/>} />
       <Route path="/edit_profile" element={<UsersShow user={users} show={isUsersShowVisible} onUpdateUser={handleUpdateUser} onDestroyUser={handleDestroyUser} />} />
+      <Route path="/" element={<RandomUser />} />
       </Routes>
-      
-      {/* <UsersNew onCreateUser={handleCreateUser}/> */}
-      {/* <UsersIndex users={users} onShowUser={handleShowUser} /> */}
-      {/* <Modal show={isUsersShowVisible} onClose={handleClose}>
-        <UsersShow user={currentUser} onUpdateUser={handleUpdateUser} onDestroyUser={handleDestroyUser} />
-      </Modal> */}
     </main>
   );
 }

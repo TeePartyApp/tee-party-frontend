@@ -1,7 +1,9 @@
+import './Footer.css'
+
 export function Footer() {
   return (
-    <footer>
+    <nav>
       <p><b>Tee Party &#169;</b></p>
-    </footer>
+    </nav>
   )
 }
