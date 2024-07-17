@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 70vh;
 }
 
 .card {
@@ -11,7 +11,8 @@
   border: 1px solid #ccc;
   border-radius: 8px;
   overflow: hidden;
-  margin: 20px;
+  margin: 0px;
+  padding: 0;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
 
@@ -46,9 +47,38 @@
   font-size: 14px;
   border-radius: 20px;
   cursor: pointer;
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  border-radius: 12px;
+  white-space: nowrap;
+  width: 120px;
+  height: 40px;
 }
 
 .btn-primary {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+}
+
+.search-button {
+  padding: 8px 16px;
+  font-size: 14px;
+  border-radius: 20px;
+  cursor: pointer;
+  display: inline-block;
+  text-decoration: none;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  border-radius: 12px;
+  white-space: nowrap;
+  width: 120px;
+  height: 40px;
   background-color: #4CAF50;
   color: white;
   border: none;
@@ -60,10 +90,19 @@
   border: none;
 }
 
+.btn-secondary {
+  display: block;
+  margin: 0 auto;
+  width: fit-content;
+}
+
 .text-name {
   font-family: "Herr Von Muellerhoff", cursive;
   font-size: 100px;
   font-weight: 400;
   font-style: normal;
   text-align: center;
+  color: #ff6f01;
+  margin: 0px;
+  padding: 0px;
 }

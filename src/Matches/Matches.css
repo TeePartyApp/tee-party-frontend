@@ -1,0 +1,43 @@
+/* Matches.css */
+
+.matches-container {
+  padding: 10px;
+}
+
+.profiles {
+  display: flex;
+  flex-wrap: nowrap;
+  /* Prevent wrapping to make it scroll horizontally */
+  overflow-x: auto;
+  /* Enable horizontal scrolling */
+  -webkit-overflow-scrolling: touch;
+  /* Enable smooth scrolling on touch devices */
+}
+
+.profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* Center-align items horizontally */
+  margin: 10px;
+  /* Add some space around each profile */
+  min-width: 120px;
+  /* Set a minimum width to make sure profiles are visible */
+}
+
+.profile-image {
+  width: 100px;
+  /* Set width of the image */
+  height: 100px;
+  /* Set height of the image */
+  border-radius: 30%;
+  /* Make image circular */
+}
+
+.profile-name {
+  margin-top: 10px;
+  /* Space between image and name */
+  font-size: 14px;
+  text-align: center;
+  /* Center-align text */
+}
