@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useState } from "react";
+import './Login.css';
 
 const jwt = localStorage.getItem("jwt");
 if (jwt) {
@@ -30,20 +31,20 @@ export function Login() {
 
   return (
     <div id="login">
-      <h1>Login</h1>
+      <h1 className="header">Login</h1>
       <ul>
         {errors.map((error) => (
           <li key={error}>{error}</li>
         ))}
       </ul>
-      <form onSubmit={handleSubmit}>
-        <div>
-          Email: <input name="email" type="email" />
+      <form className="form" onSubmit={handleSubmit}>
+        <div className="text">
+          Email: <input className="input" name="email" type="email" />
         </div>
-        <div>
-          Password: <input name="password" type="password" />
+        <div className="text">
+          Password: <input className="input" name="password" type="password" />
         </div>
-        <button type="submit">Login</button>
+        <button className="button" type="submit">Login</button>
       </form>
     </div>
   );

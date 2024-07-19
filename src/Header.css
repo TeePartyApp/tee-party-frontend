@@ -12,20 +12,18 @@ li {
   padding: 0;
 }
 
-/* Apply styles to the entire body */
+
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: #f0f0f0;
 }
 
-/* Header styles */
 header {
   background-color: #333333;
   padding: 10px 0;
-  /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); */
 }
 
-nav {
+.nav {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -40,6 +38,8 @@ nav {
   width: 50px;
   height: auto;
   margin-right: 10px;
+  justify-content: left;
+  align-items: left;
 }
 
 .header-dividers {
@@ -58,17 +58,14 @@ nav {
 
 .nav-link:hover {
   color: #e15910;
-  /* Change color on hover */
 }
 
 .nav-links {
   display: flex;
   align-items: center;
   margin-left: auto;
-  /* Align right */
 }
 
-/* Example styling for logged-in status links */
 .nav-links a {
   text-decoration: none;
   color: #f7f4f4;
@@ -79,7 +76,6 @@ nav {
 
 .nav-links a:hover {
   color: #ff6f01;
-  /* Change color on hover */
 }
 
 .dropdown-container {

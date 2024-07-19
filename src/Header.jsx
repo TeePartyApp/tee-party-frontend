@@ -1,6 +1,7 @@
 import { LogoutLink } from "./Authentication/LogoutLink"
 import { MatchesIndex } from "./Matches/MatchesIndex";
 import './Header.css';
+import { useNavigate } from "react-router-dom";
 
 
 export function Header() {
@@ -10,17 +11,17 @@ export function Header() {
   let loggedInStatus;
 
   if (localStorage.jwt) {
-    console.log("I am logged in")
+    console.log("I am logged in");
     loggedInStatus = (
       <>
         <a href="/">Home</a> <img src={headerDivider} className="header-dividers" /> <a href="/matches">Matches</a> <img src={headerDivider} className="header-dividers" /> <a href="/edit_profile">Edit profile</a> <img src={headerDivider} className="header-dividers" /><LogoutLink />
       </>
     )
   } else {
-    console.log("I am logged out")
+    console.log("I am logged out");
     loggedInStatus = (
       <>
-        <a href="/">Home</a><img src={headerDivider} className="header-dividers" /><a href="/signup">Signup</a><img src={headerDivider} className="header-dividers" /><a href="/login">Login</a> 
+        <a href="/signup">Signup</a><img src={headerDivider} className="header-dividers" /><a href="/login">Login</a> 
       </>
     )
   }

@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import './UsersShow.css';
 
 export function UsersShow(props) {
   const [userData, setUserData] = useState({
@@ -34,28 +35,28 @@ export function UsersShow(props) {
 
   return (
     <div>
-      <form onSubmit={handleSubmit}> 
-        <div>
-          Name: <input defaultValue={userData.name} name="name" type="text" />
+      <form className="form" onSubmit={handleSubmit}> 
+        <div className="text">
+          Name: <input className="input" defaultValue={userData.name} name="name" type="text" />
         </div>
-        <div>
-          Location: <input defaultValue={userData.location} name="location" type="text" />
+        <div className="text">
+          Location: <input className="input" defaultValue={userData.location} name="location" type="text" />
         </div>
-        <div>
-          Handicap: <input defaultValue={userData.handicap} name="handicap" type="text" />
+        <div className="text">
+          Handicap: <input className="input" defaultValue={userData.handicap} name="handicap" type="text" />
         </div>
-        <div>
-          Greens in regulation: <input defaultValue={userData.gir} name="gir" type="text" />
+        <div className="text">
+          Greens in regulation: <input className="input" defaultValue={userData.gir} name="gir" type="text" />
         </div>
-        <div>
-          Fairways hit: <input defaultValue={userData.fairways_hit} name="fairways_hit" type="text" />
+        <div className="text">
+          Fairways hit: <input className="input" defaultValue={userData.fairways_hit} name="fairways_hit" type="text" />
         </div>
-        <div>
-          Putts per round: <input defaultValue={userData.putts_per_round} name="putts_per_round" type="text" />
+        <div className="text">
+          Putts per round: <input className="input" defaultValue={userData.putts_per_round} name="putts_per_round" type="text" />
         </div>
-        <button type="submit">Update user</button>
+        <button className="button-submit" type="submit">Update user</button>
+        <button className="button-delete" onClick={handleClick} >Delete user</button>
       </form>
-      <button onClick={handleClick} >Delete user</button>
     </div>
   );
 }

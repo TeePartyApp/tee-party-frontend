@@ -6,25 +6,30 @@ export function MatchesIndex(props) {
 
   
 
-  const handleClick = (user) => {
-    seSelectedUser(user);
+  const handleClick = (match) => {
+    seSelectedUser(match.matched_user);
   }
   
   return (
-    <div className="matches-container">
-      <div className="profiles">
-        {props.matches.map(match => (
-          <div key={match.id} className="profile" onClick={() => handleClick(user)}>
-            <img src={match.matched_user.image_url} alt={match.matched_user.name} className="profile-image" />
-            <p className="profile-name">{match.matched_user.name}</p>
+    <div>
+      <h1 className="header">Matches</h1>
+        <div className="matches-container">
+          <div className="profiles">
+            {props.matches.map(match => (
+              <div key={match.id} className="profile" onClick={() => handleClick(match)}>
+                <img src={match.matched_user.image_url} alt={match.matched_user.name} className="profile-image" />
+                <p className="profile-name">{match.matched_user.name}</p>
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
-      {/* <div className="info-card">
-        <img src={match.matched_user.image_url} alt={match.matched_user.name} className="info-image" />
-        <h2 className="info-name">{match.matched_user.name}</h2>
-        <p className="info-details">{match.matched_user.info}</p>
-      </div> */}
+          {selectedUser && (
+          <div className="info-card">
+            <img src={selectedUser.image_url} alt={selectedUser.name} className="info-image" />
+            <h2 className="info-name">{selectedUser.name}</h2>
+            <p className="info-details">{selectedUser.info}</p>
+          </div>
+          )}
+        </div>
     </div>
   );
 }

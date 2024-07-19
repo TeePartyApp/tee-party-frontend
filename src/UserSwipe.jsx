@@ -29,6 +29,7 @@ export function RandomUser() {
         setUser(response.data);
         setLoading(false);
         setIsFiltered(false);
+        setShowModal(false);
       })
       .catch(error => {
         console.error("Error fetching random user:", error);
@@ -103,7 +104,7 @@ export function RandomUser() {
             <div className="card-buttons">
               <button className="btn btn-secondary" onClick={openModal}>Advanced search</button>
             </div>
-      <div className="container">
+      <div className="body">
         <div className="card">
           <img src={user.image_url} alt={user.name} className="card-img-top" />
           <div className="card-body">
@@ -223,6 +224,7 @@ export function RandomUser() {
           </div>
           <div className="modal-buttons">
             <button type="button" className="search-button" onClick={fetchFilteredUser}>Search</button>
+            <button type="button" className="reset-button" onClick={fetchRandomUser}>Reset</button>
           </div>
           </div>
         </form>
