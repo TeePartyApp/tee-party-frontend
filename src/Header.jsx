@@ -1,5 +1,4 @@
 import { LogoutLink } from "./Authentication/LogoutLink"
-import { MatchesIndex } from "./Matches/MatchesIndex";
 import './Header.css';
 
 
