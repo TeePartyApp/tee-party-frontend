@@ -35,28 +35,31 @@ export function UsersShow(props) {
 
   return (
     <div>
-      <form className="form" onSubmit={handleSubmit}> 
-        <div className="text">
-          Name: <input className="input" defaultValue={userData.name} name="name" type="text" />
-        </div>
-        <div className="text">
-          Location: <input className="input" defaultValue={userData.location} name="location" type="text" />
-        </div>
-        <div className="text">
-          Handicap: <input className="input" defaultValue={userData.handicap} name="handicap" type="text" />
-        </div>
-        <div className="text">
-          Greens in regulation: <input className="input" defaultValue={userData.gir} name="gir" type="text" />
-        </div>
-        <div className="text">
-          Fairways hit: <input className="input" defaultValue={userData.fairways_hit} name="fairways_hit" type="text" />
-        </div>
-        <div className="text">
-          Putts per round: <input className="input" defaultValue={userData.putts_per_round} name="putts_per_round" type="text" />
-        </div>
-        <button className="button-submit" type="submit">Update user</button>
-        <button className="button-delete" onClick={handleClick} >Delete user</button>
-      </form>
+      <h1 className="header">Edit Profile</h1>
+      <div>
+        <form className="form" onSubmit={handleSubmit}> 
+          <div className="text">
+            Name: <input className="input" defaultValue={userData.name} name="name" type="text" />
+          </div>
+          <div className="text">
+            Location: <input className="input" defaultValue={userData.location} name="location" type="text" />
+          </div>
+          <div className="text">
+            Handicap: <input className="input" defaultValue={userData.handicap} name="handicap" type="text" />
+          </div>
+          <div className="text">
+            Greens in regulation: <input className="input" defaultValue={userData.gir} name="gir" type="text" />
+          </div>
+          <div className="text">
+            Fairways hit: <input className="input" defaultValue={userData.fairways_hit} name="fairways_hit" type="text" />
+          </div>
+          <div className="text">
+            Putts per round: <input className="input" defaultValue={userData.putts_per_round} name="putts_per_round" type="text" />
+          </div>
+          <button className="button-submit" type="submit">Update user</button>
+          <button className="button-delete" onClick={handleClick} >Delete user</button>
+        </form>
+      </div>
     </div>
   );
 }

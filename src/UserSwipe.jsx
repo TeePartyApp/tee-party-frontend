@@ -106,7 +106,12 @@ export function RandomUser() {
             </div>
       <div className="body">
         <div className="card">
-          <img src={user.image_url} alt={user.name} className="card-img-top" />
+          <img src={user.image_url} alt={user.name} className="card-img-top" style={{
+          width: '100%',
+          height: '500px',
+          objectFit: 'cover',
+          borderBottom: '1px solid #ccc'
+        }} />
           <div className="card-body">
             <h2 className="card-title">{user.name}</h2>
             <p className="card-text">{user.location}</p>
