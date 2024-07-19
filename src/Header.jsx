@@ -1,7 +1,7 @@
 import { LogoutLink } from "./Authentication/LogoutLink"
 import { MatchesIndex } from "./Matches/MatchesIndex";
 import './Header.css';
-import { useNavigate } from "react-router-dom";
+
 
 
 export function Header() {

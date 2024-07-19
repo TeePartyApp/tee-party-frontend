@@ -1,6 +1,4 @@
 import { useEffect, useState } from "react"
-// import { UsersNew } from "./Users/UsersNew";
-// import { Modal } from "./Modal/Modal";
 import { UsersShow } from "./Users/UsersShow";
 import axios from "axios";
 import { Routes, Route } from "react-router-dom";

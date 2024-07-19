@@ -14,7 +14,18 @@ export function Signup() {
       .then((response) => {
         console.log(response.data);
         event.target.reset();
-        window.location.href = "/";
+        
+        const loginParams = {
+          email: params.get("email"),
+          password: params.get("password")
+        };
+
+        axios
+          .post("http://localhost:3000/sessions.json", loginParams)
+          .then((loginResponse) => {
+            localStorage.setItem("token", loginResponse.data.jwt);
+            window.location.href = "/";
+        });
       })
       .catch((error) => {
         console.log(error.response.data.errors);
@@ -32,16 +43,16 @@ export function Signup() {
       </ul>
       <form className="form" onSubmit={handleSubmit}>
         <div className="text">
-          Name: <input className="input" name="name" type="text" />
+          Name: <input className="input" placeholder="Name" name="name" type="text" />
         </div>
         <div className="text">
-          Email: <input className="input" name="email" type="email" />
+          Email: <input className="input" placeholder="Email" name="email" type="email" />
         </div>
         <div className="text">
-          Password: <input className="input" name="password" type="password" />
+          Password: <input className="input" placeholder="Password" name="password" type="password" />
         </div>
         <div className="text">
-          Password confirmation: <input className="input" name="password_confirmation" type="password" />
+          Password confirmation: <input className="input" placeholder="Confirm Password" name="password_confirmation" type="password" />
         </div>
         <button className="button" type="submit">Signup</button>
       </form>

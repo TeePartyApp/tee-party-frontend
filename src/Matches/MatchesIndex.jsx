@@ -23,11 +23,16 @@ export function MatchesIndex(props) {
             ))}
           </div>
           {selectedUser && (
-          <div className="info-card">
-            <img src={selectedUser.image_url} alt={selectedUser.name} className="info-image" />
-            <h2 className="info-name">{selectedUser.name}</h2>
-            <p className="info-details">{selectedUser.info}</p>
-          </div>
+            <div className="body">
+              <div className="card">
+                <img className="card-img-top" src={selectedUser.image_url} alt={selectedUser.name} />
+                <h2 className="card-title">{selectedUser.name}</h2>
+                <p className="card-text">{selectedUser.info}</p>
+                <div className="card-buttons">
+                  <button className="btn btn-secondary">Message</button>
+                </div>
+              </div>
+            </div>
           )}
         </div>
     </div>
