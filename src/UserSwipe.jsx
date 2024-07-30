@@ -65,6 +65,9 @@ export function RandomUser() {
     axios.post("http://localhost:3000/matches.json", { matched_user_id: user.id })
       .then(response => {
         console.log("Liked user:", response.data);
+        if (response.data.message === "It's a match!") {
+          alert("It's a match!");
+        }
         if (isFiltered === true) {
           fetchFilteredUser();
         } else if (isFiltered === false) {
