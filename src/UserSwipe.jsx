@@ -24,9 +24,14 @@ export function RandomUser() {
 
   const fetchRandomUser = () => {
     setLoading(true);
+  
     axios.get("http://localhost:3000/random_users.json", { params: filters })
       .then(response => {
-        setUser(response.data);
+        if (response.status === 200) {
+          setUser(response.data);
+        } else {
+          console.error("No users found");
+        }
         setLoading(false);
         setIsFiltered(false);
         setShowModal(false);
@@ -41,7 +46,11 @@ export function RandomUser() {
     setLoading(true);
     axios.get("http://localhost:3000/filter_users.json", { params: filters })
       .then(response => {
-        setUser(response.data);
+        if (response.status == 200) {
+          setUser(response.data);
+        } else {
+          console.error("No users found");
+        }
         setLoading(false);
         setIsFiltered(true);
         setShowModal(false);
@@ -78,7 +87,7 @@ export function RandomUser() {
         }
       })
       .catch(error => {
-        console.error("Error liking user:", error);
+        console.error("Error disliking user:", error);
       });
   };
 
