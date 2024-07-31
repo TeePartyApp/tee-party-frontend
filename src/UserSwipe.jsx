@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import './UserSwipe.css';
 import { Modal } from "./Modal/Modal";
+import { Login } from "./Authentication/Login";
 
 
 export function RandomUser() {
@@ -108,7 +109,7 @@ export function RandomUser() {
   }, []);
 
   if (loading) return <p>Loading...</p>;
-  if (!user) return <p>No user found</p>;
+  if (!user) return <Login/>;
 
   return (
     <div>
