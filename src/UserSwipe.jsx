@@ -108,7 +108,20 @@ export function RandomUser() {
     fetchRandomUser();
   }, []);
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <div class="sk-circle">
+  <div class="sk-circle1 sk-child"></div>
+  <div class="sk-circle2 sk-child"></div>
+  <div class="sk-circle3 sk-child"></div>
+  <div class="sk-circle4 sk-child"></div>
+  <div class="sk-circle5 sk-child"></div>
+  <div class="sk-circle6 sk-child"></div>
+  <div class="sk-circle7 sk-child"></div>
+  <div class="sk-circle8 sk-child"></div>
+  <div class="sk-circle9 sk-child"></div>
+  <div class="sk-circle10 sk-child"></div>
+  <div class="sk-circle11 sk-child"></div>
+  <div class="sk-circle12 sk-child"></div>
+</div>;
   if (!user) return <Login/>;
 
   return (
@@ -140,7 +153,7 @@ export function RandomUser() {
         </div>
       </div>
       <Modal show={showModal} onClose={() => setShowModal(false)}>
-        <form>
+        <form style={{textAlign: 'center'}}>
           <div className="form-group">
             <label>Location</label>
             <input type="text" name="location" value={filters.location} onChange={handleFilterChange} className="form-control" />

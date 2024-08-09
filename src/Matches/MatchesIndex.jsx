@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import './Matches.css';
 import axios from "axios";
+import { messaging } from "../Messaging/messaging";
 
 export function MatchesIndex(props) {
   const [selectedMatch, setSelectedMatch] = useState(null);
@@ -23,7 +24,8 @@ export function MatchesIndex(props) {
         });
     }
   };
-  
+
+
   return (
     <div>
       <h1 className="header">Matches</h1>
